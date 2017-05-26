@@ -9,7 +9,7 @@
         Long description of module's purpose
     """,
 
-    'author': " M.Nurmayyahdi A., M.Rafi , Wilson Lumadi",
+    'author': " Mahroza Pradana , M.Nurmayyahdi A., M.Rafi , Wilson Lumadi",
     'website': "http://www.palmagroup.co.id",
 
     'category': 'Human Resources',
