@@ -33,5 +33,8 @@
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
+        'demo/hr.education.type.csv',
+        'demo/hr.education.csv',
+        'demo/res.country.state.csv'
     ],
 }
