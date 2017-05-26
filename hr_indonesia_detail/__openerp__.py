@@ -3,7 +3,7 @@
     'name': "HR Indonesia Detail",
 
     'summary': """
-        Deatil Family, Deatil Address, Detail Education""",
+        Deatil Family, Detail Address, Detail Education""",
 
     'description': """
         Long description of module's purpose
