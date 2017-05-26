@@ -1,0 +1,116 @@
+<openerp>
+    <data>
+        <!-- Add instructor field to existing view -->
+        <record model="ir.ui.view" id="inherit_hr_employee_detail">
+            <field name="name">inherit HR employee</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='address_home_id']" position="replace">
+                    <field name="address_home_id" invisible="1" string="Address Home"/>
+                </xpath>
+
+                <xpath expr="//field[@name='religion_id']" position="replace">
+                    <field name="religion" string="Religion"/>
+
+                </xpath>
+
+                 <xpath expr="//field[@name='address_id']" position="replace">
+                    <field name="working_address_id" string="Working Address" options="{'no_create_edit': True}"/>
+                </xpath>
+
+                <xpath expr="//field[@name='address_home_id']" position="after">
+                    <field name="emergency_person" string="Emergency Contact Person"/>
+                    <field name="emergency_phone" string="Emergency Contact Phone"/>
+                </xpath>
+
+                <xpath expr="//field[@name='place_of_birth']" position="after">
+                    <field name="city_id" string="Province of Birth" required="False"/>
+                </xpath>
+
+                <xpath expr="//field[@name='supervisor_level_id']" position="after">
+                    <field name="grade_id" string="Grade"/>
+                </xpath>
+
+                <xpath expr="//field[@name='gender']" position="replace">
+                    <field name="gender" string="Gender"/>
+                </xpath>
+
+                <xpath expr="//field[@name='marital']" position="replace">
+                    <field name="marital" string="Marital Status"/>
+                </xpath>
+
+                <xpath expr="//field[@name='internship']" position="replace">
+                    <field name="status_employee" string="Status Employee"/>
+                </xpath>
+                <xpath expr="//field[@name='outsource']" position="replace">
+                    <field name="outsource" invisible="1"/>
+                </xpath>
+
+                <xpath expr="//field[@name='bank_account_id']" position="after">
+                    <field name="religion_id" string="Religion"/>
+                    <field name="ethnic_id" string="Ethnic"/>
+                </xpath>
+                <xpath expr="//field[@name='birthday']" position="after">
+                    <field name="age_employee" string="Age"/>
+                </xpath>
+
+                <xpath expr="//field[@name='joindate']" position="after">
+                    <field name="resigndate" string="Date of Resign"/>
+                </xpath>
+                <xpath expr="//field[@name='joindate']" position="before">
+                    <field name="hiredate" string="Date of Hired"/>
+                    <field name="date_probation" string="Date of Probation"/>
+                </xpath>
+
+                <xpath expr="//field[@name='contract_type']" position="after">
+                    <field name="month_probation" attrs="{'invisible':[('contract_type','!=','3')]}" string="Month of Probation"/>
+                </xpath>
+
+                <xpath expr="//field[@name='children']" position="replace">
+                    <field name="children" attrs="{'invisible':[('marital','=','single')]}" string="Children" readonly="True"/>
+                </xpath>
+
+                <xpath expr="//field[@name='npwp_number']" position="after">
+                    <field name="image_npwp" string="Upload NPWP" filename="npwp_name"/>
+                    <field name="npwp_name" invisible="1"/>
+                    <field name="family_card" string="Family Card"/>
+                </xpath>
+
+                 <xpath expr="//field[@name='nik_number']" position="after">
+                    <field name="identif_num" string="Identification No" readonly="True"/>
+                </xpath>
+
+                 <xpath expr="//div[@class='oe_button_box']" position="inside">
+                     <button name="return_action_address"
+                                type="object"
+                                class="oe_stat_button"
+                                string="Address"
+                                icon="fa-home"
+                                context="{'xml_id':'action_view_employee_address'}"
+                                >
+                     </button>
+                     <button name="return_action_family"
+                                type="object"
+                                class="oe_stat_button"
+                                string="Family"
+                                icon="fa-users"
+                                context="{'xml_id':'hr_family_action'}"
+                                >
+                     </button>
+                     <button name="return_action_education"
+                                type="object"
+                                class="oe_stat_button"
+                                string="Education"
+                                icon="fa-graduation-cap"
+                                context="{'xml_id':'hr_education_action'}"
+                                >
+                     </button>
+                 </xpath>
+
+            </field>
+
+        </record>
+
+    </data>
+</openerp>

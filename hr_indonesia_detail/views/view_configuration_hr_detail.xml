@@ -1,0 +1,50 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="hr_status_family_tree">
+            <field name="name">HR Status Family</field>
+            <field name="model">hr.status.family</field>
+            <field name="arch" type="xml" >
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_status_family" model="ir.actions.act_window" >
+            <field name="name">Status Family</field>
+            <field name="res_model">hr.status.family</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <record model="ir.ui.view" id="hr_indonesia_grade_tree">
+            <field name="name">HR Grade</field>
+            <field name="model">hr.indonesia.grade</field>
+            <field name="arch" type="xml" >
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_hr_indonesia_grade" model="ir.actions.act_window" >
+            <field name="name">Grade</field>
+            <field name="res_model">hr.indonesia.grade</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_hr_indonesia_configuration_status_family"
+                  name="Status Family"
+                  parent="hr_indonesia.menu_hr_indonesia_configuration_indonesia"
+                  action="action_status_family"/>
+        <menuitem id="menu_hr_indonesia_configuration_city"
+                  name="Regional"
+                  parent="hr_indonesia.menu_hr_indonesia_configuration_indonesia"
+                  action="action_list_city"/>
+        <menuitem id="menu_hr_indonesia_configuration_hr_grade"
+                  name="Grade"
+                  parent="hr_indonesia.menu_hr_indonesia_configuration_indonesia"
+                  action="action_hr_indonesia_grade"/>
+
+    </data>
+</openerp>

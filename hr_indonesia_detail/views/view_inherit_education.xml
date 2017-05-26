@@ -1,0 +1,16 @@
+<openerp>
+    <data>
+        <!-- Add instructor field to existing view -->
+        <record model="ir.ui.view" id="inherit_res_country_state">
+            <field name="name">inherit res country state</field>
+            <field name="model">res.country.state</field>
+            <field name="inherit_id" ref="base.view_country_state_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="parent_id" string = "Parent"/>
+                    <field name="regional_level" string="Regional"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>

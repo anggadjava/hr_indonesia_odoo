@@ -1,0 +1,73 @@
+<openerp>
+    <data>
+    <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="hr_education_tree">
+            <field name="name">hr_education_tree</field>
+            <field name="model">hr.education.detail</field>
+            <field name="arch" type="xml" >
+                <tree>
+
+                    <field name="education_type" String="Education Type" required="True" widget="selection"/>
+                    <field name="name" string="Major"/>
+                    <field name="country_id"/>
+                    <field name="education_id" string="Education Institution"/>
+                    <field name="gpa" string="Index/GPA"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="hr_education_form">
+            <field name="name">hr_education_form</field>
+            <field name="model">hr.education.detail</field>
+                <field name="arch" type="xml">
+                    <form>
+                        <sheet>
+                            <group>
+
+                                <field name="education_type" string="Education Type" widget="selection"/>
+                                <field name="name" string="Major"/>
+                                <field name="country_id" string="Country"/>
+                                <field name="education_id" string="Education Institution"/>
+                                <field name="start_date" string="Start Date"/>
+                                <field name="end_date" string="End Date"/>
+                                <field name="gpa" string="Index/GPA"/>
+                                <field name="image_certificate" string="Upload Certificate"/>
+                                <field name="certificate_name" invisible="1"/>
+
+                            </group>
+                        </sheet>
+                    </form>
+                 </field>
+             </record>
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="hr_education_action">
+        <field name="name">Education</field>
+        <field name="res_model">hr.education.detail</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    -->
+
+    <!-- server action to the one above -->
+
+
+    <!-- Top menu item -->
+    <!--
+    <menuitem name="hr_indonesia_detail" id="hr_indonesia_detail.menu_root"/>
+    -->
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="hr_indonesia_detail.menu_1" parent="hr_indonesia_detail.menu_root"/>
+    <menuitem name="Menu 2" id="hr_indonesia_detail.menu_2" parent="hr_indonesia_detail.menu_root"/>
+    -->
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="hr_indonesia_detail.menu_1_list" parent="hr_indonesia_detail.menu_1"
+              action="hr_indonesia_detail.action_window"/>
+    <menuitem name="Server to list" id="hr_indonesia_detail" parent="hr_indonesia_detail.menu_2"
+              action="hr_indonesia_detail.action_server"/>
+    -->
+  </data>
+</openerp>

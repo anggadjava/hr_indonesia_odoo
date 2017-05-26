@@ -1,0 +1,80 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="view_employee_address_tree">
+        <field name="name">View Employee Address</field>
+        <field name="model">employee.address.inherits</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" string="Nama" invisible="1"/>
+                    <field name="street" String="Street" required="True"/>
+                    <field name="state_id" string="Province" widget="selection" required="True" domain="[('regional_level','=','province')]"/>
+                    <field name="city_id" string="City" domain="[('regional_level','=','city'),('parent_id','=',state_id)]"/>
+                    <field name="district_id" String="District" domain="[('regional_level','=','district'),('parent_id','=',city_id)]"/>
+                    <field name="subdistrict_id" String="Sub-District" domain="[('regional_level','=','subdistrict'),('parent_id','=',district_id)]"/>
+                    <field name="zip" String="Zip Code"/>
+                    <field name="type" string="Type Address"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_employee_address_form">
+            <field name="name">View Employee Address</field>
+            <field name="model">employee.address.inherits</field>
+            <field name="arch" type="xml">
+                <form string="Address Detail">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="employee_id" string="Employee" invisible="1"/>
+                                <field name="name" invisible="1"/>
+                                <field name="street" String="Street" />
+                                <field name="type"/>
+                                <field name="full_address" readonly="True" invisible="1"/>
+                                <field name="active" String="Active Address"/>
+                            </group>
+                            <group>
+                                <field name="state_id" String="Province" domain="[('regional_level','=','province')]" widget="Selection"/>
+                                <field name="city_id" string="City" domain="[('regional_level','=','city'),('parent_id','=',state_id)]"/>
+                                <field name="district_id" String="District" domain="[('regional_level','=','district'),('parent_id','=',city_id)]"/>
+                                <field name="subdistrict_id" String="Sub-District" domain="[('regional_level','=','subdistrict'),('parent_id','=',district_id)]"/>
+                                <field name="zip" String="Zip Code"/>
+
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_view_employee_address">
+            <field name="name">Address</field>
+            <field name="res_model">employee.address.inherits</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_hr_indonesia_detail_employee"
+                  name="Employee Detail"
+                  parent="hr.menu_hr_root"
+                  sequence="3"
+                  groups="base.group_configuration,base.group_hr_manager"/>
+        <menuitem id="menu_hr_indonesia_employee_address"
+                  name="Address"
+                  parent="menu_hr_indonesia_detail_employee"
+                  sequence="1"
+                  groups="base.group_configuration,base.group_hr_manager"
+                  action="action_view_employee_address"/>
+        <menuitem id="menu_hr_indonesia_employee_family"
+                  name="Family"
+                  parent="menu_hr_indonesia_detail_employee"
+                  sequence="2"
+                  groups="base.group_configuration,base.group_hr_manager"
+                  action="hr_family_action"/>
+        <menuitem id="menu_hr_indonesia_employee_education"
+                  name="Education"
+                  parent="menu_hr_indonesia_detail_employee"
+                  sequence="3"
+                  groups="base.group_configuration,base.group_hr_manager"
+                  action="hr_education_action"/>
+    </data>
+</openerp>
